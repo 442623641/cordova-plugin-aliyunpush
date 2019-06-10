@@ -8,6 +8,10 @@
 > - 如没有注册小米，华为，OPPO等通道不配置即可
 > - 后台推送时可在ExtParameters参数中写入app跳转路径如ExtParameters:{url:'https://help.aliyun.com'},插件会把ExtParameters解析到push content中
 > - 后台推送时 AndroidOpenType设置为APPLICATION：打开应用 默认值
+> - 如项目中已存在 Application对象，安装完插件后请替换AndroidManifest.xml/application标签中属性android:name="com.alipush.PushApplication" 已有的Application类，然后在已有Application类onCreate() 钩子里初始化推送服务   
+```
+initPushService(this)  
+```
 
 - 通过 Cordova Plugins 安装，要求 Cordova CLI 5.0+：
 
