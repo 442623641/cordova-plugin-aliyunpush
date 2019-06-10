@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-aliyunpush" version="1.0.0" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <hook type="before_plugin_rm" src="scripts/before_plugin_rm.js" />
+    <name>Aliyun push</name>
+    <description>Cordova Push Plugin,use Aliyun SDK</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,aliyun,push,aliyunpush,xiaomi,huawei,oppo</keywords>
+    <engines>
+        <engine name="cordova-android" version=">=5.0.0" />
+    </engines>s
+    <js-module src="www/aliyunpush.js" name="AliyunPush">
+        <clobbers target="AliyunPush" />
+    </js-module>
+
+    <platform name="android">
+        <hook type="after_plugin_install" src="scripts/after_plugin_install.js" />
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="AliyunPush">
+                <param name="android-package" value="com.alipush.AliyunPush" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.alipush.PopupPushActivity" android:exported="true" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            <!-- 消息接收监听器 （用户可自主扩展） -->
+            <receiver android:exported="false" android:name="com.alipush.PushMessageReceiver">
+                <intent-filter>
+                    <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
+                </intent-filter>
+            </receiver>
+        </config-file>
+        <source-file src="src/android/res/xml/network_security_config.xml" target-dir="res/xml" />
+        <source-file src="src/android/PushUtils.java" target-dir="src/com/alipush" />
+        <source-file src="src/android/AliyunPush.java" target-dir="src/com/alipush" />
+        <source-file src="src/android/PushApplication.java" target-dir="src/com/alipush" />
+        <source-file src="src/android/PushMessageReceiver.java" target-dir="src/com/alipush" />
+        <source-file src="src/android/PopupPushActivity.java" target-dir="src/com/alipush" />
+        <framework src="build-extras.gradle" custom="true" type="gradleReference" />
+    </platform>
+    <!-- ios -->
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="AliyunPush">
+                <param name="ios-package" value="AliyunPush" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/Plugins/AliyunPush.h" />
+        <source-file src="src/ios/Plugins/AliyunPush.m" />
+        <header-file src="src/ios/Plugins/AliyunNotificationLauncher.h" />
+        <source-file src="src/ios/Plugins/AliyunNotificationLauncher.m" />
+        <header-file src="src/ios/Plugins/AppDelegate+AliyunPush.h" />
+        <source-file src="src/ios/Plugins/AppDelegate+AliyunPush.m" />
+        <framework src="libz.tbd" />
+        <framework src="UserNotifications.framework" />
+        <framework src="libsqlite3.tbd" />
+        <framework src="libresolv.tbd" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="src/ios/Aliyun.frameworks/AlicloudUtils.framework" custom="true" />
+        <framework src="src/ios/Aliyun.frameworks/CloudPushSDK.framework" custom="true" />
+        <framework src="src/ios/Aliyun.frameworks/UTDID.framework" custom="true" />
+        <framework src="src/ios/Aliyun.frameworks/UTMini.framework" custom="true" />
+        <resource-file src="src/ios/AliyunEmasServices-Info.plist" />
+    </platform>
+</plugin>

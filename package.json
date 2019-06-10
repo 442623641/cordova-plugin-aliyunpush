@@ -1,0 +1,59 @@
+{
+  "_from": "git+https://github.com/442623641/cordova-plugin-aliyunpush.git",
+  "_id": "cordova-plugin-aliyunpush@0.0.9",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-aliyunpush",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://github.com/442623641/cordova-plugin-aliyunpush.git",
+    "rawSpec": "git+https://github.com/442623641/cordova-plugin-aliyunpush.git",
+    "saveSpec": "git+https://github.com/442623641/cordova-plugin-aliyunpush.git",
+    "fetchSpec": "https://github.com/442623641/cordova-plugin-aliyunpush.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/442623641/cordova-plugin-aliyunpush.git",
+  "_spec": "git+https://github.com/442623641/cordova-plugin-aliyunpush.git",
+  "author": {
+    "name": "tubugs"
+  },
+  "bugs": {
+    "url": "https://github.com/442623641/cordova-plugin-aliyunpush/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-aliyunpush",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Push Plugin,use Aliyun SDK",
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=5.0.0"
+    }
+  ],
+  "homepage": "https://github.com/442623641/cordova-plugin-aliyunpush#readme",
+  "keywords": [
+    "cordova",
+    "aliyun",
+    "push",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-aliyunpush",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/442623641/cordova-plugin-aliyunpush.git"
+  },
+  "version": "0.0.9"
+}

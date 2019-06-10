@@ -1,0 +1,23 @@
+//apply plugin: 'com.aliyun.ams.emas-services'
+
+def minSdkVersion = 19
+
+if(cdvMinSdkVersion == null) {
+    ext.cdvMinSdkVersion = minSdkVersion;
+} else if (cdvMinSdkVersion.toInteger() < minSdkVersion) {
+    ext.cdvMinSdkVersion = minSdkVersion;
+}
+
+repositories{
+    jcenter()
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.aliyun.ams:alicloud-android-push:3.1.4'
+    //三方辅助通道
+    implementation 'com.aliyun.ams:alicloud-android-third-push:3.0.6@aar'
+}
