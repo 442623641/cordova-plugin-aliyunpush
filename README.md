@@ -20,7 +20,6 @@
   ```shell
   cordova plugin add Your_Plugin_Path 
   ```
-如cordova build出错请打开AndroidManifest.xml手动维护，修正多余标签属性
 修改项目级目录下build.gradle（{project}/build.gradle）：
 添加maven（低版本gradle，可能会有问题）
 ```
@@ -44,6 +43,7 @@
     }
   }
 ```
+如cordova build时出错请打开AndroidManifest.xml手动维护，修正多余标签属性
 
 ## Configuration
 
