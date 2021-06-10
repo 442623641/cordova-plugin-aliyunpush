@@ -96,6 +96,13 @@ Preferences available for both iOS and Android
 
 ## Usage
 
+```
+AliyunPush.onMessage((msg) => {
+///todo
+    })
+    
+AliyunPush.bindAccount(userId, success => console.log(success), e =>  console.error(e));
+```
 ### API
 
 ```
@@ -185,5 +192,6 @@ Preferences available for both iOS and Android
     }
 
 ```
+
 
 
